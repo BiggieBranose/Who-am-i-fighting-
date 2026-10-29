@@ -1,13 +1,23 @@
-﻿[build-system]
-requires = [\"setuptools>=61.0\"]
-build-backend = \"setuptools.build_meta\"
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
 
 [project]
-name = \"who-am-i-fighting\"
-version = \"0.0.0\"
-description = \"3D turn-based tactical strategy game with ML-trainable AI opponent\"
-readme = \"README.md\"
-requires-python = \">=3.10\"
+name = "who-am-i-fighting"
+version = "0.0.0"
+description = "3D turn-based tactical strategy game with ML-trainable AI opponent"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "moderngl>=5.10",
+    "glfw>=2.6",
+    "numpy>=1.26",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+]
 
 [tool.setuptools.packages.find]
-where = [\"src\"]
+where = ["src"]
