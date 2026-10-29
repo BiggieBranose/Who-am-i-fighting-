@@ -29,7 +29,7 @@ The goal is to create a turn-based strategy game with an AI opponent, with the p
 
 **Johannes Ravnevand Paulsen**
 
-Engineering preparatory studies at UiA, with a background in IT from Sam Eyde videregående skole.
+Engineering preparatory studies at UiA.
 
 ---
 
