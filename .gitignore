@@ -1,36 +1,76 @@
-﻿# Virtual environments
-.venv/
-venv/
-env/
-ENV/
-
-# Python
-__pycache__/
-*.py[cod]
-*.so
-.Python
+﻿# ---------------------------------------------------------------------------
+# Build output
+# ---------------------------------------------------------------------------
 build/
-dist/
-*.egg-info/
-.eggs/
-*.egg
-.pytest_cache/
-.mypy_cache/
-.coverage
-htmlcov/
+out/
+cmake-build-*/
+_deps/
 
+# Compiled artifacts (safety net for in-source builds)
+*.o
+*.obj
+*.a
+*.lib
+*.so
+*.so.*
+*.dylib
+*.dll
+*.exe
+*.pdb
+*.ilk
+*.out
+
+# ---------------------------------------------------------------------------
+# CMake / build system
+# ---------------------------------------------------------------------------
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+CTestTestfile.cmake
+install_manifest.txt
+compile_commands.json
+CMakeUserPresets.json
+.ninja_deps
+.ninja_log
+*.ninja
+
+# ---------------------------------------------------------------------------
+# Editors / tooling
+# ---------------------------------------------------------------------------
+.idea/
+.vscode/
+*.code-workspace
+*.swp
+*.swo
+*~
+.cache/
+.ccls-cache/
+.clangd/
+
+# ---------------------------------------------------------------------------
+# OS
+# ---------------------------------------------------------------------------
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ---------------------------------------------------------------------------
 # Environment / secrets
+# ---------------------------------------------------------------------------
 .env
 .env.*
 
-# Editors
-.idea/
-.vscode/
-*.swp
-
-# OS
-.DS_Store
-Thumbs.db
-
+# ---------------------------------------------------------------------------
 # Logs
+# ---------------------------------------------------------------------------
 *.log
+
+# ---------------------------------------------------------------------------
+# Optional Python tooling (e.g. future ML experiments)
+# ---------------------------------------------------------------------------
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
