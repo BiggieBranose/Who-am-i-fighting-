@@ -1,0 +1,39 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "CMake: build (debug)",
+            "type": "shell",
+            "command": "cmake",
+            "args": [
+                "--build",
+                "--preset",
+                "debug"
+            ],
+            "options": {
+                "env": {
+                    "PATH": "${env:HOME}/.local/bin:${env:PATH}"
+                }
+            },
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": [
+                "$gcc"
+            ]
+        },
+        {
+            "label": "CMake: run (debug)",
+            "type": "shell",
+            "command": "${workspaceFolder}/build/debug/bin/who-am-i-fighting",
+            "options": {
+                "env": {
+                    "PATH": "${env:HOME}/.local/bin:${env:PATH}"
+                }
+            },
+            "dependsOn": "CMake: build (debug)",
+            "problemMatcher": []
+        }
+    ]
+}
