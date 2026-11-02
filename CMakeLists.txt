@@ -31,3 +31,13 @@ include(CompilerOptions)
 include(Dependencies)
 
 add_subdirectory(src)
+
+# Expose the compilation database at the project root for editor tooling
+# (IntelliSense, clangd, etc.) that looks for it there.
+if(CMAKE_EXPORT_COMPILE_COMMANDS AND UNIX)
+    file(CREATE_LINK
+        "${CMAKE_BINARY_DIR}/compile_commands.json"
+        "${CMAKE_SOURCE_DIR}/compile_commands.json"
+        SYMBOLIC
+    )
+endif()
