@@ -1,0 +1,33 @@
+{
+    "C_Cpp.default.compileCommands": "${workspaceFolder}/build/debug/compile_commands.json",
+    "C_Cpp.intelliSenseEngine": "default",
+    "cmake.useCMakePresets": "always",
+    "cmake.configureOnOpen": true,
+
+    "editor.semanticHighlighting.enabled": true,
+    "editor.semanticTokenColorCustomizations": {
+        "enabled": true,
+        "rules": {
+            "namespace": "#e5c07b",
+            "type": "#e5c07b",
+            "class": "#e5c07b",
+            "struct": "#e5c07b",
+            "enum": "#e5c07b",
+            "interface": "#e5c07b",
+            "typeParameter": "#e5c07b",
+            "function": "#61afef",
+            "method": "#61afef",
+            "macro": "#d55fde",
+            "variable": "#ef596f",
+            "parameter": "#ef596f",
+            "property": "#e5c07b",
+            "enumMember": "#d19a66",
+            "*.declaration": {
+                "bold": true
+            },
+            "*.deprecated": {
+                "strikethrough": true
+            }
+        }
+    }
+}
