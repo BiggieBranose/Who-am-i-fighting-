@@ -12,6 +12,11 @@ void frambuffer_size_callback(GLFWwindow* window, int width, int height)
     glViewport(0, 0, width, height);
 }
 
+void processInput(GLFWwindow *window)
+{
+    if(glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
+        glfwSetWindowShouldClose(window, true);
+}
 
 int main()
 {
@@ -42,6 +47,13 @@ int main()
 
     while(!glfwWindowShouldClose(window))
     {
+        // Input
+        processInput(window);
+
+        // Rendering
+
+
+        // check and call events and swap buffers
         glfwSwapBuffers(window);
         glfwPollEvents();
     }
