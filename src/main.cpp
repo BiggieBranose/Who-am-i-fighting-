@@ -1,3 +1,4 @@
+# pragma region includes
 #include <glad/gl.h>
 
 #define GLFW_INCLUDE_NONE
@@ -5,18 +6,13 @@
 #include <glm/glm.hpp>
 
 #include <iostream>
+#pragma endregion includes
 
-// Callback for resizing the window
-void frambuffer_size_callback(GLFWwindow* window, int width, int height)
-{
-    glViewport(0, 0, width, height);
-}
+# pragma region predef
+void frambuffer_size_callback(GLFWwindow* window, int width, int height);
 
-void processInput(GLFWwindow *window)
-{
-    if(glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
-        glfwSetWindowShouldClose(window, true);
-}
+void processInput(GLFWwindow *window);
+#pragma endregion predef
 
 int main()
 {
@@ -51,9 +47,10 @@ int main()
         processInput(window);
 
         // Rendering
+        glClearColor(0.8f, 0.1f, 0.2f, 1.0f);
+        glClear(GL_COLOR_BUFFER_BIT);
 
-
-        // check and call events and swap buffers
+        // Check and call events and swap buffers
         glfwSwapBuffers(window);
         glfwPollEvents();
     }
@@ -61,3 +58,18 @@ int main()
     glfwTerminate();
     return 0;
 }
+
+#pragma region rest
+// Callback for resizing the window
+void frambuffer_size_callback(GLFWwindow* window, int width, int height)
+{
+    glViewport(0, 0, width, height);
+}
+
+// Processing input
+void processInput(GLFWwindow *window)
+{
+    if(glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
+        glfwSetWindowShouldClose(window, true);
+}
+#pragma endregion rest
