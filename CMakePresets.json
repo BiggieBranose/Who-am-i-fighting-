@@ -1,5 +1,5 @@
 {
-    "version": 6,
+    "version": 5,
     "cmakeMinimumRequired": {
         "major": 3,
         "minor": 24,
@@ -9,7 +9,6 @@
         {
             "name": "base",
             "hidden": true,
-            "generator": "Ninja",
             "binaryDir": "${sourceDir}/build/${presetName}",
             "cacheVariables": {
                 "CMAKE_EXPORT_COMPILE_COMMANDS": "ON"
@@ -43,15 +42,18 @@
     "buildPresets": [
         {
             "name": "debug",
-            "configurePreset": "debug"
+            "configurePreset": "debug",
+            "configuration": "Debug"
         },
         {
             "name": "release",
-            "configurePreset": "release"
+            "configurePreset": "release",
+            "configuration": "Release"
         },
         {
             "name": "relwithdebinfo",
-            "configurePreset": "relwithdebinfo"
+            "configurePreset": "relwithdebinfo",
+            "configuration": "RelWithDebInfo"
         }
     ]
 }
