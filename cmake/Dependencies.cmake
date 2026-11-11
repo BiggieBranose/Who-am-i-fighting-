@@ -14,7 +14,12 @@ add_subdirectory(
 )
 
 # --- GLFW -------------------------------------------------------------------
-find_package(glfw3 3.3 QUIET)
+# When compiling with MSVC, skip system packages: a MinGW-built GLFW (for
+# example from an MSYS2 shell) is not ABI-compatible and must not be mixed in.
+# Fetching the dependency ensures it is built with the active MSVC toolchain.
+if(NOT MSVC)
+    find_package(glfw3 3.3 QUIET)
+endif()
 
 if(NOT glfw3_FOUND)
     message(STATUS "glfw3 not found - fetching GLFW 3.4 from source")
@@ -39,7 +44,10 @@ if(NOT glfw3_FOUND)
 endif()
 
 # --- GLM --------------------------------------------------------------------
-find_package(glm QUIET)
+# Same reasoning as GLFW above: never pair MinGW headers with an MSVC build.
+if(NOT MSVC)
+    find_package(glm QUIET)
+endif()
 
 if(NOT glm_FOUND)
     message(STATUS "glm not found - fetching GLM 1.0.1 from source")

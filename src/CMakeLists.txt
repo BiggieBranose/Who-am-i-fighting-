@@ -14,9 +14,10 @@ set_target_properties(who_am_i_fighting PROPERTIES
     OUTPUT_NAME "who-am-i-fighting"
 )
 
-# Headers next to the sources can be included as "render/foo.hpp", etc.
+# Headers can be included by name from both the source tree and header/.
 target_include_directories(who_am_i_fighting PRIVATE
     "${CMAKE_CURRENT_SOURCE_DIR}"
+    "${CMAKE_CURRENT_SOURCE_DIR}/../header"
 )
 
 target_link_libraries(who_am_i_fighting PRIVATE
