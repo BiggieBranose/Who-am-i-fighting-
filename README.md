@@ -55,6 +55,7 @@ editing any CMake files.
 
 ```text
 cmake/            Build helpers and dependency setup
+header/           header files for single defining or setup for .cpp
 src/              Game source (render/, etc.)
 third_party/glad/ Vendored OpenGL loader
 CMakeLists.txt    Top-level build configuration
