@@ -2,6 +2,7 @@
 
 #include "Input.hpp"
 #include "Window.hpp"
+#include "Shaders.hpp"
 
 // Owns the window, input and the main loop.
 class Application {
@@ -12,6 +13,7 @@ public:
 private:
     void processInput();
     void render();
+    void cleanup();
 
     Window window_;
     Input input_;

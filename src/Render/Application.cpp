@@ -8,7 +8,7 @@ namespace {
 
 constexpr const char* WINDOW_TITLE = "Spooky Amdus Window";
 
-} // namespace
+}
 
 Application::Application()
     : window_(SCR_WIDTH, SCR_HEIGHT, WINDOW_TITLE)
@@ -40,4 +40,9 @@ void Application::render()
 {
     glClearColor(0.8f, 0.3f, 0.2f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT);
+}
+
+void Application::cleanup()
+{
+    
 }
