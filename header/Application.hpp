@@ -2,6 +2,7 @@
 
 #include "Input.hpp"
 #include "Window.hpp"
+#include "Shaders.hpp"
 
 // Owns the window, input and the main loop.
 class Application {

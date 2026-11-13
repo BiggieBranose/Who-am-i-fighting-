@@ -8,7 +8,7 @@ namespace {
 
 constexpr const char* WINDOW_TITLE = "Spooky Amdus Window";
 
-} // namespace
+}
 
 Application::Application()
     : window_(SCR_WIDTH, SCR_HEIGHT, WINDOW_TITLE)
