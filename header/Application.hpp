@@ -13,6 +13,7 @@ public:
 private:
     void processInput();
     void render();
+    void cleanup();
 
     Window window_;
     Input input_;
