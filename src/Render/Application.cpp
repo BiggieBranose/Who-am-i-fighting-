@@ -38,8 +38,8 @@ void Application::processInput()
 
 void Application::render()
 {
-    glUseProgram(shaders_::shaderProgram);
-    glBindVertexArray(shaders_::VAO);
+    glUseProgram(shaders_.shaderProgram);
+    glBindVertexArray(shaders_.VAO);
     glDrawArrays(GL_TRIANGLES, 0, 3);
 
 }
