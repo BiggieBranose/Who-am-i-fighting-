@@ -89,7 +89,7 @@ launch configuration work on Windows, Linux and macOS.
 ```text
 header/           Public headers (Application, Window, Input, ShaderProgram, Mesh)
 src/              Game source (Render/)
-shaders/          GLSL shaders
+shaders/          GLSL sources (shaders are currently embedded in C++)
 cmake/            Build helpers and dependency setup
 third_party/glad/ Vendored OpenGL loader
 CMakeLists.txt    Top-level build configuration

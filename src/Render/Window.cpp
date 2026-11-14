@@ -28,6 +28,7 @@ Window::Window(int width, int height, const char* title)
     }
 
     glfwMakeContextCurrent(window_);
+    glfwSwapInterval(1);
     glfwSetFramebufferSizeCallback(window_, framebufferSizeCallback);
 
     // Load the OpenGL function pointers.
@@ -38,6 +39,13 @@ Window::Window(int width, int height, const char* title)
         glfwTerminate();
         throw std::runtime_error("Failed to initialize GLAD");
     }
+
+    // The framebuffer can be larger than the window on high-DPI displays.
+    // Set the initial viewport from the framebuffer size, not width/height.
+    int framebufferWidth = 0;
+    int framebufferHeight = 0;
+    glfwGetFramebufferSize(window_, &framebufferWidth, &framebufferHeight);
+    glViewport(0, 0, framebufferWidth, framebufferHeight);
 }
 
 Window::~Window()

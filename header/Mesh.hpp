@@ -3,9 +3,13 @@
 #include <cstddef>
 #include <span>
 
+// Owns a VAO/VBO/EBO for indexed triangle geometry.
+// Uses attribute location 0, matching the active shader program.
 class Mesh {
 public:
-    explicit Mesh(std::span<const float> vertices, int components = 3);
+    Mesh(std::span<const float> vertices,
+         std::span<const unsigned int> indices,
+         int components = 3);
     ~Mesh();
 
     Mesh(const Mesh&) = delete;
@@ -16,5 +20,6 @@ public:
 private:
     unsigned int vao_ = 0;
     unsigned int vbo_ = 0;
-    std::size_t vertexCount_ = 0;
+    unsigned int ebo_ = 0;
+    std::size_t indexCount_ = 0;
 };

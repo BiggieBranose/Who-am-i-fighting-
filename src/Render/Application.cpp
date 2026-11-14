@@ -28,23 +28,25 @@ void main()
 }
 )";
 
-constexpr std::array<float, 12> TRIANGLE_VERTICES = {
+constexpr std::array<float, 12> QUAD_VERTICES = {
      0.5f,  0.5f, 0.0f,  // top right
      0.5f, -0.5f, 0.0f,  // bottom right
     -0.5f, -0.5f, 0.0f,  // bottom left
-    -0.5f,  0.5f, 0.0f   // top left 
+    -0.5f,  0.5f, 0.0f,  // top left
 };
 
-unsigned int indices[] = {  // note that we start from 0!
-    0, 1, 3,   // first triangle
-    1, 2, 3    // second triangle
+constexpr std::array<unsigned int, 6> QUAD_INDICES = {
+    0, 1, 3,  // first triangle
+    1, 2, 3,  // second triangle
 };
+
+} // namespace
 
 Application::Application()
     : window_(SCR_WIDTH, SCR_HEIGHT, WINDOW_TITLE)
     , input_(window_.handle())
     , shader_(VERTEX_SHADER_SOURCE, FRAGMENT_SHADER_SOURCE)
-    , mesh_(TRIANGLE_VERTICESd)
+    , mesh_(QUAD_VERTICES, QUAD_INDICES)
 {
     glClearColor(0.1f, 0.1f, 0.15f, 1.0f);
 }
