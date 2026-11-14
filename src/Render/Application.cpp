@@ -11,7 +11,6 @@ namespace {
 constexpr const char* WINDOW_TITLE = "slightly less spooky Amdus Window";
 
 constexpr const char* VERTEX_SHADER_SOURCE = R"(#version 330 core
-
 layout (location = 0) in vec3 aPos;
 
 void main()
@@ -21,7 +20,6 @@ void main()
 )";
 
 constexpr const char* FRAGMENT_SHADER_SOURCE = R"(#version 330 core
-
 out vec4 FragColor;
 
 void main()
