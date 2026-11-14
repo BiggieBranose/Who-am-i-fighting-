@@ -17,4 +17,5 @@ private:
 
     Window window_;
     Input input_;
+    Shaders shaders_;
 };

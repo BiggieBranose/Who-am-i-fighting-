@@ -38,8 +38,10 @@ void Application::processInput()
 
 void Application::render()
 {
-    glClearColor(0.8f, 0.3f, 0.2f, 1.0f);
-    glClear(GL_COLOR_BUFFER_BIT);
+    glUseProgram(shaders_::shaderProgram);
+    glBindVertexArray(shaders_::VAO);
+    glDrawArrays(GL_TRIANGLES, 0, 3);
+
 }
 
 void Application::cleanup()
