@@ -10,30 +10,35 @@
                 "--preset",
                 "debug"
             ],
-            "options": {
-                "env": {
-                    "PATH": "${env:HOME}/.local/bin:${env:PATH}"
-                }
-            },
             "group": {
                 "kind": "build",
                 "isDefault": true
             },
-            "problemMatcher": [
-                "$gcc"
-            ]
+            "windows": {
+                "problemMatcher": [
+                    "$msCompile"
+                ]
+            },
+            "linux": {
+                "problemMatcher": [
+                    "$gcc"
+                ]
+            },
+            "osx": {
+                "problemMatcher": [
+                    "$gcc"
+                ]
+            }
         },
         {
             "label": "CMake: run (debug)",
-            "type": "shell",
+            "type": "process",
             "command": "${workspaceFolder}/build/debug/bin/who-am-i-fighting",
-            "options": {
-                "env": {
-                    "PATH": "${env:HOME}/.local/bin:${env:PATH}"
-                }
-            },
             "dependsOn": "CMake: build (debug)",
-            "problemMatcher": []
+            "problemMatcher": [],
+            "windows": {
+                "command": "${workspaceFolder}/build/debug/bin/who-am-i-fighting.exe"
+            }
         }
     ]
 }

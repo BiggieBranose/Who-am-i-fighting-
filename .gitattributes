@@ -1,0 +1,8 @@
+# Store text files with LF in the repository and check them out with the
+# platform's native line endings. Keeps Windows and Linux checkouts consistent.
+* text=auto
+
+# Scripts that Windows should always receive with CRLF.
+*.bat text eol=crlf
+*.cmd text eol=crlf
+*.ps1 text eol=crlf

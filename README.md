@@ -31,19 +31,45 @@ i originally thought of doing this in python which i have less experience with d
 
 ## Building
 
-Requires CMake 3.24+, a C++20 compiler, Ninja (or Make), and OpenGL drivers.
-GLFW and GLM are fetched automatically if they are not already installed, and
-the glad OpenGL loader is vendored in `third_party/`, so there are no other
-system dependencies.
+### Requirements
+
+- CMake 3.24+
+- A C++20 compiler (MSVC on Windows, GCC or Clang on Linux)
+- Git (GLFW and GLM are fetched at configure time when not installed)
+- OpenGL drivers
+
+The glad OpenGL loader is vendored in `third_party/glad`, so no loader package
+is needed. The presets do not force a generator: CMake uses the native default
+for each platform (Visual Studio on Windows, Make or Ninja on Linux). Both
+platforms place the executable in `build/<preset>/bin`.
+
+### Windows
+
+Install Visual Studio (2022 or newer) with the "Desktop development with C++"
+workload. Then, from a terminal in the project root:
+
+```powershell
+cmake --preset debug
+cmake --build --preset debug
+.\build\debug\bin\who-am-i-fighting.exe
+```
+
+### Linux (Debian/Ubuntu)
+
+GLFW is built from source, so it needs the X11 development packages:
 
 ```bash
-# Configure
+sudo apt install build-essential cmake git \
+    libgl1-mesa-dev libx11-dev libxrandr-dev \
+    libxinerama-dev libxcursor-dev libxi-dev
+```
+
+Add `libwayland-dev libxkbcommon-dev wayland-protocols` if you build GLFW with
+Wayland support. Then:
+
+```bash
 cmake --preset debug
-
-# Build
 cmake --build --preset debug
-
-# Run
 ./build/debug/bin/who-am-i-fighting
 ```
 
@@ -51,11 +77,20 @@ Use `release` instead of `debug` for an optimized build. The source tree is
 scanned automatically, so new `.cpp` files under `src/` are picked up without
 editing any CMake files.
 
+### VS Code
+
+Install the CMake Tools and C/C++ extensions. IntelliSense is provided by CMake
+Tools, so it works with both the Visual Studio and Make/Ninja generators. The
+`CMake: build (debug)` and `CMake: run (debug)` tasks and the `Debug (CMake)`
+launch configuration work on Windows, Linux and macOS.
+
 ## Project layout
 
 ```text
+header/           Public headers (Application, Window, Input, ShaderProgram, Mesh)
+src/              Game source (Render/)
+shaders/          GLSL shaders
 cmake/            Build helpers and dependency setup
-src/              Game source (render/, etc.)
 third_party/glad/ Vendored OpenGL loader
 CMakeLists.txt    Top-level build configuration
 CMakePresets.json Debug/Release presets
