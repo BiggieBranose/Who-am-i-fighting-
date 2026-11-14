@@ -8,7 +8,7 @@
 
 namespace {
 
-constexpr const char* WINDOW_TITLE = "Spooky Amdus Window";
+constexpr const char* WINDOW_TITLE = "slightly less spooky Amdus Window";
 
 constexpr const char* VERTEX_SHADER_SOURCE = R"(#version 330 core
 
