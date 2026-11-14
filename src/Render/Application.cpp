@@ -28,19 +28,23 @@ void main()
 }
 )";
 
-constexpr std::array<float, 9> TRIANGLE_VERTICES = {
-    -0.5f, -0.5f, 0.0f,
-     0.5f, -0.5f, 0.0f,
-     0.0f,  0.5f, 0.0f,
+constexpr std::array<float, 12> TRIANGLE_VERTICES = {
+     0.5f,  0.5f, 0.0f,  // top right
+     0.5f, -0.5f, 0.0f,  // bottom right
+    -0.5f, -0.5f, 0.0f,  // bottom left
+    -0.5f,  0.5f, 0.0f   // top left 
 };
 
-}
+unsigned int indices[] = {  // note that we start from 0!
+    0, 1, 3,   // first triangle
+    1, 2, 3    // second triangle
+};
 
 Application::Application()
     : window_(SCR_WIDTH, SCR_HEIGHT, WINDOW_TITLE)
     , input_(window_.handle())
     , shader_(VERTEX_SHADER_SOURCE, FRAGMENT_SHADER_SOURCE)
-    , mesh_(TRIANGLE_VERTICES)
+    , mesh_(TRIANGLE_VERTICESd)
 {
     glClearColor(0.1f, 0.1f, 0.15f, 1.0f);
 }
