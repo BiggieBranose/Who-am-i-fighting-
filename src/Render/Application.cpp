@@ -10,6 +10,7 @@ namespace {
 
 constexpr const char* WINDOW_TITLE = "slightly less spooky Amdus Window";
 
+#pragma region Temp shader and index data
 constexpr const char* VERTEX_SHADER_SOURCE = R"(#version 330 core
 layout (location = 0) in vec3 aPos;
 
@@ -39,6 +40,8 @@ constexpr std::array<unsigned int, 6> QUAD_INDICES = {
     0, 1, 3,  // first triangle
     1, 2, 3,  // second triangle
 };
+
+#pragma endregion
 
 } // namespace
 
